@@ -1,0 +1,85 @@
+# Learn more about configuring your checkout UI extension:
+# https://shopify.dev/api/checkout-extensions/checkout/configuration
+
+# The version of APIs your extension will receive. Learn more:
+# https://shopify.dev/docs/api/usage/versioning
+api_version = "2024-01"
+
+[[extensions]]
+type = "ui_extension"
+name = "checkout-reviews"
+handle = "checkout-reviews"
+
+# Controls where in Shopify your extension will be injected,
+# and the file that contains your extension’s source code. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/extension-targets-overview
+
+[[extensions.targeting]]
+module = "./src/Checkout.jsx"
+target = "purchase.checkout.block.render"
+
+[extensions.capabilities]
+# Gives your extension access to directly query Shopify’s storefront API.
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#api-access
+api_access = true
+
+# Gives your extension access to make external network calls, using the
+# JavaScript `fetch()` API. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#network-access
+# network_access = true
+
+# Loads metafields on checkout resources, including the cart,
+# products, customers, and more. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#metafields
+
+# [[extensions.metafields]]
+# namespace = "my_namespace"
+# key = "my_key"
+# [[extensions.metafields]]
+# namespace = "my_namespace"
+# key = "my_other_key"
+
+# Defines settings that will be collected from merchants installing
+# your extension. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#settings-definition
+
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "image"
+type = "single_line_text_field"
+name = "Main image"
+description = "Enter the image link"
+[[extensions.settings.fields]]
+key = "caption"
+type = "single_line_text_field"
+name = "Caption"
+description = "Enter caption"
+[[extensions.settings.fields]]
+key = "stars"
+type = "single_line_text_field"
+name = "Stars"
+description = "Enter the image link to change the stars"
+[[extensions.settings.fields]]
+key = "date"
+type = "single_line_text_field"
+name = "Date"
+description = "Enter the date of the review"
+[[extensions.settings.fields]]
+key = "title"
+type = "single_line_text_field"
+name = "Title"
+description = "Enter the title of the review"
+[[extensions.settings.fields]]
+key = "description"
+type = "single_line_text_field"
+name = "Description"
+description = "Enter the description of the review"
+[[extensions.settings.fields]]
+key = "name"
+type = "single_line_text_field"
+name = "Customer name"
+description = "Enter customer name"
+[[extensions.settings.fields]]
+key = "white_bg"
+type = "boolean"
+name = "Show white background"

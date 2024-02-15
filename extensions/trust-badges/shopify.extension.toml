@@ -1,0 +1,90 @@
+# Learn more about configuring your checkout UI extension:
+# https://shopify.dev/api/checkout-extensions/checkout/configuration
+
+# The version of APIs your extension will receive. Learn more:
+# https://shopify.dev/docs/api/usage/versioning
+api_version = "2024-01"
+
+[[extensions]]
+type = "ui_extension"
+name = "trust-badges"
+handle = "trust-badges"
+
+# Controls where in Shopify your extension will be injected,
+# and the file that contains your extension’s source code. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/extension-targets-overview
+
+[[extensions.targeting]]
+module = "./src/Checkout.jsx"
+target = "purchase.checkout.block.render"
+
+[extensions.capabilities]
+# Gives your extension access to directly query Shopify’s storefront API.
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#api-access
+api_access = true
+
+# Gives your extension access to make external network calls, using the
+# JavaScript `fetch()` API. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#network-access
+# network_access = true
+
+# Loads metafields on checkout resources, including the cart,
+# products, customers, and more. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#metafields
+
+# [[extensions.metafields]]
+# namespace = "my_namespace"
+# key = "my_key"
+# [[extensions.metafields]]
+# namespace = "my_namespace"
+# key = "my_other_key"
+
+# Defines settings that will be collected from merchants installing
+# your extension. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#settings-definition
+
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "title"
+type = "single_line_text_field"
+name = "Title"
+[[extensions.settings.fields]]
+key = "icon1"
+type = "single_line_text_field"
+name = "Icon 1"
+description = "Enter the image link for badge 1"
+[[extensions.settings.fields]]
+key = "text1"
+type = "single_line_text_field"
+name = "Text 1"
+description = "Enter the text for badge 1"
+[[extensions.settings.fields]]
+key = "icon2"
+type = "single_line_text_field"
+name = "Icon 2"
+description = "Enter the image link for badge 2"
+[[extensions.settings.fields]]
+key = "text2"
+type = "single_line_text_field"
+name = "Text 2"
+description = "Enter the text for badge 2"
+[[extensions.settings.fields]]
+key = "icon3"
+type = "single_line_text_field"
+name = "Icon 3"
+description = "Enter the image link for badge 3"
+[[extensions.settings.fields]]
+key = "text3"
+type = "single_line_text_field"
+name = "Text 3"
+description = "Enter the text for badge 3"
+[[extensions.settings.fields]]
+key = "icon4"
+type = "single_line_text_field"
+name = "Icon 4"
+description = "Enter the image link for badge 4"
+[[extensions.settings.fields]]
+key = "text4"
+type = "single_line_text_field"
+name = "Text 4"
+description = "Enter the text for badge 4"
